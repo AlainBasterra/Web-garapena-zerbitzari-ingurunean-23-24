@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+    <head lang="en">
+     <title>
+        Nire Django Blog
+     </title>
+    </head>
+    <body>
+     <center>
+         <h1>Post bat eguneratzeko ondorengo formularioa bete</h1>
+     </center>
+    <br><br>
+     <form action="/update/updatepost/" method="POST">
+         {% csrf_token %}
+         <label for="izenburua">Postaren izenburua</label>
+         <input type="text" name="izenburua" id="izenburua">
+         <label for="edukia">Postaren edukia</label>
+         <input type="text" name="edukia" id="edukia">
+         <button type="submit" value="submit">Post-a sortu</button>
+     </form>
+    </body>
+</html>

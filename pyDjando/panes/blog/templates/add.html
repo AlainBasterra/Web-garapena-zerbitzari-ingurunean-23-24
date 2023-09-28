@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+     <form action="/add/addpost/" method="POST">
+         {% csrf_token %}
+         <label for="izenburua">Postaren izenburua</label>
+         <input type="text" name="izenburua" id="izenburua">
+         <label for="edukia">Postaren edukia</label>
+         <input type="text" name="edukia" id="edukia">
+         <button type="submit" value="submit">Post-a sortu</button>
+     </form>
+{% endblock content %}
