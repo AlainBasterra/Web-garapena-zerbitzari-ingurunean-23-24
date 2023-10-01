@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Kokalekua aldatu{% endblock %}
+{% block content %}
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-body">
+            <form action="/formupdatekokalekua/updatekokalekua/" method="POST" autocomplete="off">
+                {% csrf_token %}
+                <h2 class="card-title">Kokalekuaren ezaugarriak:</h2>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="izena" class="form-label">Izena:</label>
+                        <input type="text" class="form-control" name="izena" id="izena"
+                               value="{{ kokalekua.izena }}">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="pisua" class="form-label">Pisua:</label>
+                        <input type="number" class="form-control" name="pisua" id="pisua" max="99" min="-9"
+                               value="{{ kokalekua.pisua }}">
+                    </div>
+                </div>
+                <input type="hidden" name="id" value="{{ kokalekua.id }}">
+                <div class="text-end">
+                    <button type="submit" class="btn btn-primary">Kokalekua eguneratu</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

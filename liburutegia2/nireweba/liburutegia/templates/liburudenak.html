@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block title %}Liburu denak{% endblock %}
+{% block content %}
+
+<div class="container">
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Titulua</th>
+            <th>Egilea</th>
+            <th>Generoa</th>
+            <th>Orrialde kopurua</th>
+            <th>Liburu kokalekua</th>
+            <th>Aldatu</th>
+            <th>Ezabatu</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for liburua in liburuaktokiekin %}
+        <tr>
+            <td>{{ liburua.liburua.id }}</td>
+            <td>{{ liburua.liburua.titulua }}</td>
+            <td>{{ liburua.liburua.egilea }}</td>
+            <td>{{ liburua.liburua.generoa }}</td>
+            <td>{{ liburua.liburua.orrialde_kopurua }}</td>
+            <td>{{ liburua.kokalekuak }}</td>
+            <td>
+                <div class="d-flex justify-content-center">
+                    <a href="formupdateliburua/{{ liburua.liburua.id }}" class="btn btn-secondary">Aldatu</a>
+                </div>
+            </td>
+            <td>
+                <div class="d-flex justify-content-center">
+                    <a href="deleteliburua/{{ liburua.liburua.id }}" class="btn btn-danger">Ezabatu</a>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="row">
+        <div class="col-6">
+            <div class="text-start">
+                <a href="/" class="btn btn-primary">Liburuak banatuta</a>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="text-end">
+                <a href="/formaddliburua" class="btn btn-success">Liburu bat gehitu</a>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+{% endblock content %}

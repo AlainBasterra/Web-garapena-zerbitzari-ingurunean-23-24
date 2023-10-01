@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}Liburua gehitu{% endblock %}
+{% block content %}
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-body">
+            <form action="/formaddliburua/addliburua/" method="POST" autocomplete="off">
+                {% csrf_token %}
+                <h2 class="card-title">Liburuaren ezaugarriak:</h2>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="titulua" class="form-label">Izenburua:</label>
+                        <input type="text" class="form-control" name="titulua" id="titulua" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="egilea" class="form-label">Egilea:</label>
+                        <input type="text" class="form-control" name="egilea" id="egilea" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="orrialde_kopurua" class="form-label">Orrialde kopurua:</label>
+                        <input type="number" class="form-control" name="orrialde_kopurua" id="orrialde_kopurua" min="1" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="generoa" class="form-label">Generoa:</label>
+                        <input type="text" class="form-control" name="generoa" id="generoa" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <label for="kokalekua" class="form-label">Kokalekuak:</label>
+                        {% for kokalekua in kokalekuak %}
+                        <div class="form-check">
+                            <input id="kokalekua" type="checkbox" class="form-check-input" name="kokalekua" value="{{ kokalekua.id }}">
+                            <label class="form-check-label">{{ kokalekua.izena }}</label>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="text-end">
+                    <button type="submit" class="btn btn-primary">Libura sortu</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

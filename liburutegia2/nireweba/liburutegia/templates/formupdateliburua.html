@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}Liburua aldatu{% endblock %}
+{% block content %}
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-body">
+            <form action="/formupdateliburua/updateliburua/" method="POST" autocomplete="off">
+                {% csrf_token %}
+                <h2 class="card-title">Liburuaren ezaugarriak:</h2>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="titulua" class="form-label">Izenburua:</label>
+                        <input type="text" class="form-control" name="titulua" id="titulua"
+                               value="{{ liburua.titulua }}">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="egilea" class="form-label">Egilea:</label>
+                        <input type="text" class="form-control" name="egilea" id="egilea" value="{{ liburua.egilea }}">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="orrialde_kopurua" class="form-label">Orrialde kopurua:</label>
+                        <input type="text" class="form-control" name="orrialde_kopurua" id="orrialde_kopurua"
+                               value="{{ liburua.orrialde_kopurua }}">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="generoa" class="form-label">Generoa:</label>
+                        <input type="text" class="form-control" name="generoa" id="generoa"
+                               value="{{ liburua.generoa }}">
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <label for="kokalekuak" class="form-label">Kokalekuak:</label>
+                    {% for kokalekua in kokalekuak %}
+                    <div class="form-check">
+                        <input id="kokalekuak" type="checkbox" class="form-check-input" name="kokalekuak" value="{{ kokalekua.id }}"
+                               {% if kokalekua.id in liburuaren_kokalekuen_idak %} checked {% endif %}>
+                        <label class="form-check-label">{{ kokalekua.izena }}</label>
+                    </div>
+                    {% endfor %}
+                </div>
+                <input type="hidden" name="id" value="{{ liburua.id }}">
+                <div class="text-end">
+                    <button type="submit" class="btn btn-primary">Liburua eguneratu</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

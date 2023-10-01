@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Kokalekua gehitu{% endblock %}
+{% block content %}
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-body">
+            <form action="/formaddkokalekua/addkokalekua/" method="POST" autocomplete="off">
+                {% csrf_token %}
+                <h2 class="card-title">Kokalekuaren ezaugarriak:</h2>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="izena" class="form-label">Izena:</label>
+                        <input type="text" class="form-control" name="izena" id="izena" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="pisua" class="form-label">Pisua:</label>
+                        <input type="number" class="form-control" name="pisua" id="pisua" max="99" min="-9" required>
+                    </div>
+                </div>
+                <div class="text-end">
+                    <button type="submit" class="btn btn-primary">Kokalekua sortu</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

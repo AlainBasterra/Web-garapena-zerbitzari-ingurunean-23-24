@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Kokalekua, Liburua
+from .models import Kokalekua, Liburua, LiburuKokalekua
 # Register your models here.
 
 class KokalekuaAdmin(admin.ModelAdmin):
@@ -13,3 +13,8 @@ class LiburuaAdmin(admin.ModelAdmin):
     prepopulated_fields = {'egilea': ('egilea',)}
 
 admin.site.register(Liburua, LiburuaAdmin)
+
+class LiburuKokalekuaAdmin(admin.ModelAdmin):
+    list_display = ('liburua', 'kokalekua')  # Define los campos que deseas mostrar en la lista
+
+admin.site.register(LiburuKokalekua, LiburuKokalekuaAdmin)

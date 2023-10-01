@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}Kokalekuak{% endblock %}
+{% block content %}
+
+<div class="container">
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Izena</th>
+            <th>Pisua</th>
+            <th>Sortua</th>
+            <th>Aldatu</th>
+            <th>Ezabatu</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for kokaleku in kokalekuak %}
+        <tr>
+            <td>{{ kokaleku.id }}</td>
+            <td>{{ kokaleku.izena }}</td>
+            <td>{{ kokaleku.pisua }}</td>
+            <td>{{ kokaleku.sortua }}</td>
+            <td>
+                <div class="d-flex justify-content-center">
+                    <a href="formupdatekokalekua/{{ kokaleku.id }}" class="btn btn-secondary">Aldatu</a>
+                </div>
+            </td>
+            <td>
+                <div class="d-flex justify-content-center">
+                    <a href="deletekokalekua/{{ kokaleku.id }}" class="btn btn-danger">Ezabatu</a>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="row">
+        <div class="col-6">
+            <div class="text-start">
+                <a href="/" class="btn btn-primary">Liburuak banatuta</a>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="text-end">
+                <a href="/formaddkokalekua" class="btn btn-success">Kokaleku bat gehitu</a>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+{% endblock content %}
