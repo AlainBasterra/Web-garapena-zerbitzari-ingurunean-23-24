@@ -1,0 +1,71 @@
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h4,
+p {
+  margin: 0px;
+}
+
+body {
+  background-color: white;
+  margin: 0;
+  padding: 0;
+}
+/* Este es el contenedor General donde fijo la estructura de la rejilla o Grid */
+.container {
+  width: 100%;
+  height: 100%;
+  border: 3px solid black;
+  grid-template: ;
+  
+}
+
+/* Cabecera de la página */
+header {
+  
+}
+
+/* Menú lateral */
+nav {
+  
+}
+
+nav div {
+  
+}
+
+/* Imagen grande */
+main {
+  
+}
+
+main img {
+  /* margin: 20px 20px 0 20px; */
+  height: 200px;
+  width: 700px;
+  border-radius: 20px;
+}
+
+/* Resto de imágenes. Colocadas por grid-auto-flow que por defecto es row */
+article {
+  
+}
+
+article img {
+  /* margin: 20px 20px 0px 20px; */
+  height: 150px;
+  width: 500px;
+  border-radius: 20px;
+}
+
+
+/* Pie de la página */
+footer {
+ 
+}
+
+footer img {
+  
+}
