@@ -13,15 +13,29 @@ use App\Http\Controllers\AtasaController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () { return view('welcome'); });
 
-Route::get('/atasak', function () {
-    return view('atasak.index');
-});
+//Atasak
 
-Route::post('atasak', [AtasaController::class, 'store'])->name('atasak');
+Route::get('/atasak', [AtasaController::class, 'index'])->name('atasak');
+
+Route::post('/atasak', [AtasaController::class, 'store'])->name('atasak');
+
+Route::get('/atasak/{id}', [AtasaController::class, 'show'])->name('atasa-edit');
+
+Route::patch('/atasak/{id}', [AtasaController::class, 'update'])->name('atasa-update');
+
+Route::delete('/atasak/{id}', [AtasaController::class, 'destroy'])->name('atasa-destroy');
+
+
+//Erabiltzaileak
+
+Route::get('/erabiltzaileak', function () { return view('erabiltzaileak.index'); });
+
+
+
+
+
 
 Route::get('/proba', function () {
     return view('proba');
